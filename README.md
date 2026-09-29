@@ -1,190 +1,277 @@
-# Nityadhikar
+# Nityadhikar ⚖️
 
-**AI-Based Legal Guidance Platform**
+### AI-Powered Legal Advisory Platform
 
-Nityadhikar is an AI-based legal guidance platform designed to make legal information easier to understand and more accessible.
+Nityadhikar is an AI-powered legal advisory platform designed to make legal information **simpler, more accessible, and easier to understand**.
 
-The project aims to help people understand their **rights, legal procedures, documents, and possible next steps** without requiring them to already understand complicated legal terminology.
+The platform helps users explore legal information, understand their rights and procedures, identify relevant legal provisions, and analyze legal documents through an easy-to-use interface.
 
-> **Legal information made easier for everyone.**
-
----
-
-## About the Project
-
-Legal information can be difficult to access and even harder to understand. High legal costs, limited legal awareness, and complex legal terminology can make it difficult for people to understand their rights and available options.
-
-Nityadhikar aims to provide a simple interface where users can describe their legal situation in everyday language and, as the system develops, receive relevant legal information and guidance in a more understandable form.
-
-The project also explores features for legal document understanding and legal research assistance.
+> **Disclaimer:** Nityadhikar provides general legal information and guidance. It is not a substitute for professional legal advice from a qualified lawyer.
 
 ---
 
-## Key Features
+## 📌 Project Overview
 
-### 1. Legal Guidance
+Legal information can often be difficult to understand because of complex terminology, lengthy documents, and limited accessibility to reliable resources.
 
-Users can describe their situation in simple words and select a relevant legal category, such as:
+**Nityadhikar** aims to bridge this gap by combining:
 
-* Consumer Rights
-* Women & Family
-* Employment
-* Property
-* Cybercrime
-* Education
-* Other
+* 🤖 Artificial Intelligence
+* 🧠 Natural Language Processing
+* 📚 Legal information retrieval
+* 📄 Legal document analysis
+* 💬 Conversational interaction
 
-The interface is designed to make it easier for users who may not be familiar with legal terminology.
-
-### 2. Legal Chat Interface
-
-Users can explain what happened using natural language.
-
-The planned system can be connected with the backend AI/legal knowledge system to provide relevant legal information and possible next steps.
-
-### 3. Document Analysis
-
-Nityadhikar includes a planned document-analysis interface where users can upload legal documents and receive help understanding:
-
-* Important clauses
-* Obligations
-* Possible concerns
-
-### 4. Legal Research Assistance
-
-The project vision also includes assisting legal professionals with:
-
-* Relevant laws
-* Case summaries
-* Legal precedents
-* Case analysis
-* Legal research
-
-### 5. User Authentication
-
-The project includes an existing **Signup/Signin authentication system**.
-
-The frontend is being developed around the existing authentication rather than replacing it.
+The goal is to help users understand legal information in **simple and accessible language**.
 
 ---
 
-## How It Works
+## 🎯 Project Objectives
+
+The main objectives of Nityadhikar are to:
+
+* Make legal information easier for users to understand.
+* Provide simple explanations of legal concepts and provisions.
+* Help users identify potentially relevant laws and legal procedures.
+* Assist users in understanding their rights and available options.
+* Analyze legal documents and highlight important clauses or obligations.
+* Provide references to relevant legal provisions and resources.
+* Create an accessible and user-friendly legal assistance platform.
+
+---
+
+## ✨ Key Features
+
+### 🔐 User Authentication
+
+* User registration and login
+* Secure authentication
+* User profile information
+* Password confirmation and validation
+
+### 🤖 AI Legal Assistant
+
+* Conversational legal assistance
+* Natural-language interaction
+* Simplified explanations of legal concepts
+* Guidance based on the user's query
+
+### 📚 Legal Information
+
+* Relevant legal provisions
+* Rights and procedures
+* Legal references and resources
+* Easy-to-understand explanations
+
+### 📄 Legal Document Analysis
+
+* Upload and analyze legal documents
+* Identify important clauses
+* Highlight obligations and potential concerns
+* Simplify complex legal language
+
+### 🎨 Interactive Interface
+
+* Clean and responsive design
+* Easy navigation
+* User-friendly dashboard
+* Designed for accessibility and simplicity
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* HTML
+* CSS
+* JavaScript
+* React
+
+### Backend
+
+* Node.js
+* Express.js
+
+### Database
+
+* MongoDB
+
+### AI / NLP
+
+* Natural Language Processing
+* Large Language Models
+
+### Development Tools
+
+* Git
+* GitHub
+* Visual Studio Code
+
+---
+
+## 📂 Project Structure
+
+```text
+Nityadhikar/
+│
+├── backend/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   └── ...
+│
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   └── services/
+│   └── ...
+│
+├── screenshots/
+│   ├── home.png
+│   ├── login.png
+│   ├── signup.png
+│   └── dashboard.png
+│
+└── README.md
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Komal251005/Nitiyadhikar.git
+```
+
+Navigate into the project:
+
+```bash
+cd Nitiyadhikar
+```
+
+---
+
+### 2. Backend Setup
+
+Navigate to the backend:
+
+```bash
+cd backend
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create a `.env` file and add the required environment variables.
+
+Example:
+
+```env
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+```
+
+Start the backend:
+
+```bash
+npm start
+```
+
+---
+
+### 3. Frontend Setup
+
+Open another terminal and navigate to the frontend:
+
+```bash
+cd frontend
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+The frontend will be available at the local URL displayed in the terminal.
+
+---
+
+## 🚀 Demo
+
+### Live Demo
+
+> Coming soon.
+
+### Demo Flow
 
 The basic user flow is:
 
 ```text
-User
-  ↓
-Describe the Legal Situation
-  ↓
-Select Legal Category
-  ↓
-Understand Relevant Legal Information
-  ↓
-Explore Possible Options / Procedures
-  ↓
-Understand Possible Next Steps
+Landing Page
+     ↓
+   Sign Up
+     ↓
+   Login
+     ↓
+  Dashboard
+     ↓
+AI Legal Assistance
+     ↓
+Legal Information / Document Analysis
 ```
 
-For document analysis:
-
-```text
-Upload Legal Document
-        ↓
-Document Processing
-        ↓
-Identify Important Information
-        ↓
-Explain Clauses / Obligations / Concerns
-```
+A live deployment and demonstration link will be added once the project is deployed.
 
 ---
 
-## Technology
+## 🔮 Future Scope
 
-The project is being developed with a focus on keeping the implementation understandable and beginner-friendly.
+Nityadhikar can be further enhanced with:
 
-The exact technologies and architecture may evolve as development continues.
-
-The frontend is intended to use simple and maintainable technologies where possible, while the backend handles authentication and future AI/legal functionality.
-
----
-
-## Design
-
-The Nityadhikar interface follows a clean and professional visual identity.
-
-### Primary Colors
-
-* Mustard/Gold: `#F69B08`
-* Black: `#000000`
-* White: `#FFFFFF`
-* Dark Brown: `#542C09`
-* Orange: `#F57414`
-* Warm Background: `#FFF8EA`
-
-The primary visual combination is:
-
-**White + Black + Mustard**
-
-The design focuses on:
-
-* Simple navigation
-* Clear buttons
-* Readable typography
-* Accessible interface
-* Minimal animations
-* Responsive design
-* Human-centered language
+* 🌐 Multilingual legal assistance
+* 🎙️ Voice-based interaction
+* 📱 Mobile application
+* 🔎 Improved legal document search
+* 📑 Support for additional document formats
+* ⚡ More advanced legal information retrieval
+* 👨‍⚖️ Lawyer consultation integration
+* 📚 Expansion of the legal knowledge base
 
 ---
 
-## Project Structure
+## ⚠️ Disclaimer
 
-The project contains an existing backend authentication system and is being extended with a frontend for the Nityadhikar platform.
+Nityadhikar is an educational and informational platform designed to assist users in understanding general legal information.
 
-The existing authentication system should be preserved while new frontend features are added around it.
-
----
-
-## Future Scope
-
-The project can be extended with:
-
-* AI-powered legal guidance
-* Legal knowledge retrieval
-* Legal document analysis
-* Case-law analysis
-* Relevant legal provision retrieval
-* Legal research assistance
-* More legal categories
-* Improved accessibility
-* Integration with additional legal resources
+The information provided by the platform should not be considered professional legal advice. Users should consult a qualified legal professional for advice regarding specific legal situations.
 
 ---
 
-## Important Disclaimer
+## 👩‍💻 Project Team
 
-Nityadhikar provides general legal information and guidance for educational purposes.
+**Nityadhikar** is developed as a final-year engineering project by students of:
 
-**It does not replace professional legal advice or a qualified lawyer.**
-
-Users should consult a qualified legal professional for advice regarding their specific legal situation.
-
----
-
-## Project Team
-
-**The Legal Trio**
-
-* Arya Dandnaik
-* Komal Mhaske
-* Tanishka Patil
+**Zeal College of Engineering and Research**
+Savitribai Phule Pune University
 
 ---
 
-## Project Status
+## 📄 License
 
-**Currently in development.**
-
-The existing authentication system is being preserved while the interactive Nityadhikar frontend is being developed.
+This project is developed for educational and academic purposes.
