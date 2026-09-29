@@ -5,46 +5,92 @@ const jwt = require("jsonwebtoken");
 // Signup
 const signup = async (req, res) => {
     try {
-        const { username, password } = req.body;
+        const {
+            firstName,
+            lastName,
+            email,
+            mobileNumber,
+            city,
+            username,
+            password,
+            termsAccepted
+        } = req.body;
 
-        // Check if all fields are provided
-        if (!username || !password) {
+        const userEmail = email ? email.toLowerCase().trim() : null;
+        const userMobile = mobileNumber ? mobileNumber.trim() : null;
+
+        // Check required fields
+        if (!password) {
             return res.status(400).json({
-                message: "Username and password are required"
+                message: "Password is required"
             });
         }
 
-        // Check if user already exists
-        const existingUser = await User.findOne({ username });
+        // Duplicate check for email if provided
+        if (userEmail) {
+            const existingEmail = await User.findOne({ email: userEmail });
+            if (existingEmail) {
+                return res.status(400).json({
+                    message: "Email is already registered"
+                });
+            }
+        }
 
-        if (existingUser) {
-            return res.status(400).json({
-                message: "Username already exists"
-            });
+        // Duplicate check for mobile number if provided
+        if (userMobile) {
+            const existingMobile = await User.findOne({ mobileNumber: userMobile });
+            if (existingMobile) {
+                return res.status(400).json({
+                    message: "Mobile number is already registered"
+                });
+            }
+        }
+
+        // Duplicate check for username if provided
+        if (username) {
+            const existingUsername = await User.findOne({ username: username.trim() });
+            if (existingUsername) {
+                return res.status(400).json({
+                    message: "Username is already taken"
+                });
+            }
         }
 
         // Hash password
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        // Create new user
+        // Derive username if not explicitly provided
+        const finalUsername = username ? username.trim() : (userEmail ? userEmail.split("@")[0] : `user_${Date.now()}`);
+
+        // Create new user record
         const user = await User.create({
-            username,
-            password: hashedPassword
+            firstName: firstName ? firstName.trim() : "",
+            lastName: lastName ? lastName.trim() : "",
+            email: userEmail || "",
+            mobileNumber: userMobile || "",
+            city: city ? city.trim() : "",
+            username: finalUsername,
+            password: hashedPassword,
+            termsAccepted: termsAccepted !== undefined ? termsAccepted : true
         });
 
         res.status(201).json({
-            message: "User registered successfully",
+            message: "Account created successfully",
             user: {
                 id: user._id,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                email: user.email,
+                mobileNumber: user.mobileNumber,
+                city: user.city,
                 username: user.username
             }
         });
 
     } catch (error) {
         console.error("Signup error:", error.message);
-
         res.status(500).json({
-            message: "Server error"
+            message: "Server error during registration"
         });
     }
 };
@@ -54,19 +100,26 @@ const login = async (req, res) => {
     try {
         const { username, password } = req.body;
 
-        // Check if all fields are provided
         if (!username || !password) {
             return res.status(400).json({
-                message: "Username and password are required"
+                message: "Username/Email and password are required"
             });
         }
 
-        // Find user
-        const user = await User.findOne({ username });
+        const inputKey = username.trim();
+
+        // Find user by username, email, or mobile number
+        const user = await User.findOne({
+            $or: [
+                { username: inputKey },
+                { email: inputKey.toLowerCase() },
+                { mobileNumber: inputKey }
+            ]
+        });
 
         if (!user) {
             return res.status(401).json({
-                message: "Invalid username or password"
+                message: "Invalid credentials"
             });
         }
 
@@ -78,36 +131,38 @@ const login = async (req, res) => {
 
         if (!isPasswordCorrect) {
             return res.status(401).json({
-                message: "Invalid username or password"
+                message: "Invalid credentials"
             });
         }
+
         // Create JWT token
         const token = jwt.sign(
             {
                 userId: user._id,
-                username: user.username
+                username: user.username || user.email,
+                firstName: user.firstName,
+                lastName: user.lastName
             },
             process.env.JWT_SECRET,
             {
-                expiresIn: process.env.JWT_EXPIRES_IN
+                expiresIn: process.env.JWT_EXPIRES_IN || "1d"
             }
         );
-        // Login successful //JWT_SECRET=your_super_secret_key_12345
-        // JWT_EXPIRES_IN=1d
-        // So the token will expire after 1 day.
-       
+
         res.status(200).json({
             message: "Login successful",
             token,
             user: {
                 id: user._id,
-                username: user.username
+                username: user.username || user.email,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                email: user.email
             }
         });
 
     } catch (error) {
         console.error("Login error:", error.message);
-
         res.status(500).json({
             message: "Server error"
         });

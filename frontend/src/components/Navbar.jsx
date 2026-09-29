@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import smallLogo from "../assets/small-logo-new.png";
 
 function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -38,16 +39,11 @@ function Navbar() {
       <div className="container navbar-container">
         {/* Brand Logo & Name */}
         <Link to="/" className="navbar-brand" onClick={() => setMobileOpen(false)}>
-          <div className="brand-logo-icon" title="Nityadhikar Legal Guidance">
-            {/* Scales of Justice Icon */}
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
-              <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
-              <path d="M7 21h10"/>
-              <path d="M12 3v18"/>
-              <path d="M3 7h18"/>
-            </svg>
-          </div>
+          <img 
+            src={smallLogo} 
+            alt="Nityadhikar Logo" 
+            style={{ height: "40px", width: "40px", borderRadius: "8px", objectFit: "cover" }}
+          />
           <span className="brand-name">
             Nitya<span className="brand-highlight">dhikar</span>
           </span>

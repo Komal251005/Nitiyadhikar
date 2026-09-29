@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { loginUser } from "../services/authApi";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import smallLogo from "../assets/small-logo-new.png";
 
 function Login() {
     const [username, setUsername] = useState("");
@@ -49,14 +50,12 @@ function Login() {
             <div className="auth-page-container">
                 <div className="auth-card">
                     <div className="auth-header">
-                        <div className="brand-logo-icon" style={{ margin: "0 auto 1rem auto", width: 44, height: 44 }}>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                                <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
-                                <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
-                                <path d="M7 21h10"/>
-                                <path d="M12 3v18"/>
-                                <path d="M3 7h18"/>
-                            </svg>
+                        <div style={{ margin: "0 auto 1rem auto", width: 50, height: 50 }}>
+                            <img 
+                                src={smallLogo} 
+                                alt="Nityadhikar Logo" 
+                                style={{ width: "100%", height: "100%", borderRadius: "10px", objectFit: "cover" }}
+                            />
                         </div>
                         <h2 className="auth-title">Welcome Back</h2>
                         <p className="auth-subtitle">Sign in to access Nityadhikar services</p>

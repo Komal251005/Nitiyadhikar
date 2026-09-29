@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { getProfile } from "../services/userApi";
+import smallLogo from "../assets/small-logo-new.png";
 
 function Dashboard() {
     const navigate = useNavigate();
@@ -38,14 +39,12 @@ function Dashboard() {
             <div className="section section-warm" style={{ flexGrow: 1 }}>
                 <div className="container" style={{ maxWidth: 800 }}>
                     <div className="about-card" style={{ textAlign: "center", padding: "3rem 2rem" }}>
-                        <div className="brand-logo-icon" style={{ margin: "0 auto 1.25rem auto", width: 54, height: 54 }}>
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                                <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
-                                <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
-                                <path d="M7 21h10"/>
-                                <path d="M12 3v18"/>
-                                <path d="M3 7h18"/>
-                            </svg>
+                        <div style={{ margin: "0 auto 1.25rem auto", width: 60, height: 60 }}>
+                            <img 
+                                src={smallLogo} 
+                                alt="Nityadhikar Logo" 
+                                style={{ width: "100%", height: "100%", borderRadius: "12px", objectFit: "cover" }}
+                            />
                         </div>
 
                         <h1 className="section-title" style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>

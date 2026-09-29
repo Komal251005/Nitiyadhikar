@@ -1,12 +1,19 @@
 const API_URL = "http://localhost:5000/api/auth";
 
-export const signupUser = async (username, password) => {
+export const signupUser = async (userDataOrUsername, password) => {
+    let payload;
+    if (typeof userDataOrUsername === "object" && userDataOrUsername !== null) {
+        payload = userDataOrUsername;
+    } else {
+        payload = { username: userDataOrUsername, password };
+    }
+
     const response = await fetch(`${API_URL}/signup`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({ username, password })
+        body: JSON.stringify(payload)
     });
 
     const data = await response.json();
@@ -35,4 +42,3 @@ export const loginUser = async (username, password) => {
 
     return data;
 };
-

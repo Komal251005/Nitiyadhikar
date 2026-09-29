@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import LegalGuidance from "../components/LegalGuidance";
 import DocumentAnalysis from "../components/DocumentAnalysis";
+import largeLogo from "../assets/large-logo.png";
 
 function Home() {
   const scrollToSection = (id) => {
@@ -51,16 +52,14 @@ function Home() {
               </div>
             </div>
 
-            {/* HERO VISUAL GRAPHIC */}
-            <div className="hero-visual-card">
-              <div className="hero-visual-icon-box">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
-                  <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/>
-                  <path d="M7 21h10"/>
-                  <path d="M12 3v18"/>
-                  <path d="M3 7h18"/>
-                </svg>
+            {/* HERO VISUAL BRANDING CARD */}
+            <div className="hero-visual-card" style={{ padding: "1.5rem" }}>
+              <div style={{ overflow: "hidden", borderRadius: "var(--radius-md)", marginBottom: "1.25rem" }}>
+                <img 
+                  src={largeLogo} 
+                  alt="Nityadhikar Official Competition Logo" 
+                  style={{ width: "100%", maxHeight: "260px", objectFit: "contain", borderRadius: "var(--radius-md)" }}
+                />
               </div>
               <h3 className="hero-visual-title">Simple Legal Clarity</h3>
               <p className="hero-visual-text">

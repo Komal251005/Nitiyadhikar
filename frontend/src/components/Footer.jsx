@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import mediumLogo from "../assets/medium-logo.png";
 
 function Footer() {
   const scrollToSection = (sectionId) => {
@@ -14,8 +15,12 @@ function Footer() {
         <div className="footer-grid">
           {/* Brand Info */}
           <div>
-            <div className="footer-brand-title">
-              Nityadhikar
+            <div style={{ marginBottom: "0.75rem" }}>
+              <img 
+                src={mediumLogo} 
+                alt="Nityadhikar Official Logo" 
+                style={{ height: "65px", width: "auto", borderRadius: "6px" }}
+              />
             </div>
             <p className="footer-brand-text">
               Legal Help, Made Easier. An AI-based legal guidance platform designed to make legal rights, procedures, and documents simple and accessible for everyone.
