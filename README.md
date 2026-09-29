@@ -138,79 +138,8 @@ Nityadhikar/
 └── README.md
 ```
 
----
 
-## ⚙️ Installation & Setup
 
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/Komal251005/Nitiyadhikar.git
-```
-
-Navigate into the project:
-
-```bash
-cd Nitiyadhikar
-```
-
----
-
-### 2. Backend Setup
-
-Navigate to the backend:
-
-```bash
-cd backend
-```
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Create a `.env` file and add the required environment variables.
-
-Example:
-
-```env
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_secret_key
-```
-
-Start the backend:
-
-```bash
-npm start
-```
-
----
-
-### 3. Frontend Setup
-
-Open another terminal and navigate to the frontend:
-
-```bash
-cd frontend
-```
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Start the development server:
-
-```bash
-npm run dev
-```
-
-The frontend will be available at the local URL displayed in the terminal.
-
----
 
 ## 🚀 Demo
 
